@@ -1,9 +1,449 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bobby — UI Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #0F0F12;
+  color: #F5F3F0;
+}
+
+/* Nav */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+  border-bottom: 1px solid rgba(245,243,240,0.1);
+}
+.nav-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+.nav-links a {
+  color: rgba(245,243,240,0.6);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #F5F3F0;
+}
+
+/* Hero */
+.hero {
+  padding: 100px 40px 80px;
+  max-width: 900px;
+  animation: fadeUp 1s ease forwards;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.hero p {
+  font-size: 17px;
+  color: rgba(245,243,240,0.6);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 12px;
+  padding: 6px 16px;
+  border: 1px solid rgba(245,243,240,0.2);
+  border-radius: 20px;
+  color: rgba(245,243,240,0.7);
+}
+
+/* Projects */
+.projects {
+  padding: 60px 40px;
+}
+.section-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(245,243,240,0.4);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+.project-card {
+  border: 1px solid rgba(245,243,240,0.1);
+  border-radius: 24px;
+  padding: 48px;
+  margin-bottom: 24px;
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+.project-card:hover {
+  border-color: rgba(245,243,240,0.3);
+}
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.project-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+.project-meta {
+  font-size: 13px;
+  color: rgba(245,243,240,0.4);
+  text-align: right;
+  line-height: 1.6;
+}
+.project-desc {
+  font-size: 15px;
+  color: rgba(245,243,240,0.6);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* Screen previews */
+.screens {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 36px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.screen {
+  min-width: 140px;
+  height: 280px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.screen-name {
+  font-size: 10px;
+  margin-top: 8px;
+  opacity: 0.5;
+}
+
+/* Tether screens */
+.t1 { background: linear-gradient(160deg, #c9a99a 0%, #1a0f0a 100%); }
+.t2 { background: #FDF6F0; }
+.t3 { background: #FDF6F0; }
+.t4 { background: #FDF6F0; }
+.t5 { background: #FDF6F0; }
+
+/* Zenith screens */
+.z1 { background: #E8E4F0; }
+.z2 { background: #E8E4F0; }
+.z3 { background: #E8E4F0; }
+.z4 { background: #E8E4F0; }
+.z5 { background: #E8E4F0; }
+
+/* Case study grid */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(245,243,240,0.1);
+}
+.case-item h4 {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.case-item p {
+  font-size: 14px;
+  color: rgba(245,243,240,0.55);
+  line-height: 1.65;
+}
+.tether-accent { color: #E8735A; }
+.zenith-accent { color: #7C6FA0; }
+
+/* About */
+.about {
+  padding: 80px 40px;
+  border-top: 1px solid rgba(245,243,240,0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.about p {
+  font-size: 15px;
+  color: rgba(245,243,240,0.6);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.skill {
+  background: rgba(245,243,240,0.05);
+  border-radius: 12px;
+  padding: 16px;
+}
+.skill h5 {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(245,243,240,0.4);
+  margin-bottom: 8px;
+}
+.skill p {
+  font-size: 13px;
+  color: rgba(245,243,240,0.7);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Contact */
+.contact {
+  padding: 80px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(245,243,240,0.1);
+}
+.contact h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.contact p {
+  font-size: 16px;
+  color: rgba(245,243,240,0.6);
+  margin-bottom: 32px;
+}
+.contact-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.btn {
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-primary {
+  background: #F5F3F0;
+  color: #0F0F12;
+}
+.btn-primary:hover {
+  background: rgba(245,243,240,0.85);
+}
+.btn-secondary {
+  background: transparent;
+  color: #F5F3F0;
+  border: 1px solid rgba(245,243,240,0.3);
+}
+.btn-secondary:hover {
+  border-color: rgba(245,243,240,0.7);
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
 <body>
-  <h1>Hello World</h1>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-name">Bobby</div>
+  <div class="nav-links">
+    <a href="#projects">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>UI Designer building<br>products people actually<br>want to use.</h1>
+  <p>I design warm, considered digital experiences — from dating apps to wellness tools. Currently exploring the intersection of design and frontend development.</p>
+  <div class="tags">
+    <div class="tag">Figma</div>
+    <div class="tag">Design Systems</div>
+    <div class="tag">Prototyping</div>
+    <div class="tag">HTML / CSS / JS</div>
+    <div class="tag">Dark & Light Mode</div>
+  </div>
+</div>
+
+<!-- Projects -->
+<div class="projects" id="projects">
+  <p class="section-label">Selected Work</p>
+
+  <!-- Tether -->
+  <div class="project-card">
+    <div class="project-top">
+      <div class="project-name">Tether</div>
+      <div class="project-meta">Dating App · UI Design<br>2026</div>
+    </div>
+    <p class="project-desc">A dating app built around intention rather than swiping fatigue. Warm terracotta identity, complete onboarding flow, and a unique post-date feedback feature designed to encourage meaningful connections over hookup culture.</p>
+
+    <div class="screens">
+      <div class="screen t1">
+        <p style="font-family: 'Playfair Display', serif; color: white; font-size: 20px; letter-spacing: 3px;">tether</p>
+        <p class="screen-name" style="color: rgba(255,255,255,0.5);">Splash</p>
+      </div>
+      <div class="screen t2">
+        <p style="font-family: 'Playfair Display', serif; color: #2C1810; font-size: 13px; font-weight: 600;">What is your dating goal?</p>
+        <p class="screen-name" style="color: #2C1810;">Goals</p>
+      </div>
+      <div class="screen t3">
+        <p style="font-family: 'Playfair Display', serif; color: #2C1810; font-size: 13px; font-weight: 600;">What are your interests?</p>
+        <p class="screen-name" style="color: #2C1810;">Interests</p>
+      </div>
+      <div class="screen t4">
+        <p style="font-family: 'Playfair Display', serif; color: #2C1810; font-size: 13px; font-weight: 600;">Hi, What should we call you?</p>
+        <p class="screen-name" style="color: #2C1810;">Name</p>
+      </div>
+      <div class="screen t5">
+        <p style="font-family: 'Playfair Display', serif; color: #2C1810; font-size: 13px; font-weight: 600;">Bobby, 25</p>
+        <p class="screen-name" style="color: #2C1810;">Swipe</p>
+      </div>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-item">
+        <h4 class="tether-accent">Problem</h4>
+        <p>Dating apps optimise for endless swiping. Tether needed to feel intentional and safe from the very first screen.</p>
+      </div>
+      <div class="case-item">
+        <h4 class="tether-accent">Approach</h4>
+        <p>Warm terracotta palette, serif typography, conversational onboarding, and a post-date accountability feature.</p>
+      </div>
+      <div class="case-item">
+        <h4 class="tether-accent">Outcome</h4>
+        <p>Complete 8-screen flow with design system, component states, variables, and light/dark mode variants.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zenith -->
+  <div class="project-card">
+    <div class="project-top">
+      <div class="project-name">Zenith</div>
+      <div class="project-meta">Wellness App · UI Design<br>2026</div>
+    </div>
+    <p class="project-desc">A hyper-personalised mental health app using neomorphic design to create a calm, tactile interface. Features an AI-driven daily check-in that feels like a conversation rather than a clinical form.</p>
+
+    <div class="screens">
+      <div class="screen z1">
+        <p style="font-family: 'Playfair Display', serif; color: #2D2640; font-size: 20px; letter-spacing: 3px;">zenith</p>
+        <p class="screen-name" style="color: #2D2640;">Splash</p>
+      </div>
+      <div class="screen z2">
+        <p style="font-family: 'Playfair Display', serif; color: #2D2640; font-size: 13px;">How are you feeling right now?</p>
+        <p class="screen-name" style="color: #2D2640;">Check-in</p>
+      </div>
+      <div class="screen z3">
+        <div style="width: 60px; height: 60px; border-radius: 50%; background: #7C6FA0; margin-bottom: 8px;"></div>
+        <p style="font-family: 'Playfair Display', serif; color: #2D2640; font-size: 13px;">Box Breathing</p>
+        <p class="screen-name" style="color: #2D2640;">Exercise</p>
+      </div>
+      <div class="screen z4">
+        <p style="font-family: 'Playfair Display', serif; color: #2D2640; font-size: 13px;">Your Insights</p>
+        <p class="screen-name" style="color: #2D2640;">Dashboard</p>
+      </div>
+      <div class="screen z5">
+        <p style="font-family: 'Playfair Display', serif; color: #2D2640; font-size: 13px;">Your Profile</p>
+        <p class="screen-name" style="color: #2D2640;">Profile</p>
+      </div>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-item">
+        <h4 class="zenith-accent">Problem</h4>
+        <p>Mental health apps feel clinical and form-like. Zenith needed to feel like a conversation with someone who understands you.</p>
+      </div>
+      <div class="case-item">
+        <h4 class="zenith-accent">Approach</h4>
+        <p>Neomorphic UI, soft lavender palette, AI greeting bubbles, and color-coded mood tracking across every screen.</p>
+      </div>
+      <div class="case-item">
+        <h4 class="zenith-accent">Outcome</h4>
+        <p>6-screen system covering check-in, mood dashboard, breathing exercises, insights calendar and profile management.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- About -->
+<div class="about" id="about">
+  <div>
+    <h2>About me</h2>
+    <p>I'm a self-taught UI designer with a focus on mobile app design. I care about the details — the right font weight, the right shadow, the right amount of breathing room.</p>
+    <p>I'm currently learning frontend development so I can build what I design. I believe the best designers understand how things are built.</p>
+  </div>
+  <div class="skills">
+    <div class="skill">
+      <h5>Design</h5>
+      <p>Figma, Design Systems, Prototyping, Variables, Components</p>
+    </div>
+    <div class="skill">
+      <h5>Frontend</h5>
+      <p>HTML, CSS, JavaScript, Responsive Design</p>
+    </div>
+    <div class="skill">
+      <h5>Process</h5>
+      <p>User flows, Wireframing, Visual Design, Handoff</p>
+    </div>
+    <div class="skill">
+      <h5>Currently learning</h5>
+      <p>React, Framer Motion, CSS animations</p>
+    </div>
+  </div>
+</div>
+
+<!-- Contact -->
+<div class="contact" id="contact">
+  <h2>Let's work together</h2>
+  <p>Open to junior UI design roles, product design internships, and freelance projects.</p>
+  <div class="contact-links">
+    <a href="mailto:your@email.com" class="btn btn-primary">Get in touch</a>
+    <a href="https://linkedin.com" class="btn btn-secondary">LinkedIn</a>
+    <a href="https://behance.net" class="btn btn-secondary">Behance</a>
+  </div>
+</div>
+
 </body>
 </html>
