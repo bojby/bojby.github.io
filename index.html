@@ -129,6 +129,399 @@ nav {
   padding-bottom: 4px;
 }
 .screen {
+  min-width: 160px;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(245,243,240,0.04);
+}
+.screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Case study grid */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(245,243,240,0.1);
+}
+.case-item h4 {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.case-item p {
+  font-size: 14px;
+  color: rgba(245,243,240,0.55);
+  line-height: 1.65;
+}
+.volt-accent { color: #D6FF4F; }
+.tether-accent { color: #E8735A; }
+.zenith-accent { color: #7C6FA0; }
+
+/* About */
+.about {
+  padding: 80px 40px;
+  border-top: 1px solid rgba(245,243,240,0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.about p {
+  font-size: 15px;
+  color: rgba(245,243,240,0.6);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.skill {
+  background: rgba(245,243,240,0.05);
+  border-radius: 12px;
+  padding: 16px;
+}
+.skill h5 {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(245,243,240,0.4);
+  margin-bottom: 8px;
+}
+.skill p {
+  font-size: 13px;
+  color: rgba(245,243,240,0.7);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Contact */
+.contact {
+  padding: 80px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(245,243,240,0.1);
+}
+.contact h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.contact p {
+  font-size: 16px;
+  color: rgba(245,243,240,0.6);
+  margin-bottom: 32px;
+}
+.contact-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.btn {
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-primary {
+  background: #F5F3F0;
+  color: #0F0F12;
+}
+.btn-primary:hover {
+  background: rgba(245,243,240,0.85);
+}
+.btn-secondary {
+  background: transparent;
+  color: #F5F3F0;
+  border: 1px solid rgba(245,243,240,0.3);
+}
+.btn-secondary:hover {
+  border-color: rgba(245,243,240,0.7);
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-name">Bobby</div>
+  <div class="nav-links">
+    <a href="#projects">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>UI Designer building<br>products people actually<br>want to use.</h1>
+  <p>I design warm, considered digital experiences — from fitness dashboards to dating apps and wellness tools. Currently exploring the intersection of design and frontend development.</p>
+  <div class="tags">
+    <div class="tag">Figma</div>
+    <div class="tag">Design Systems</div>
+    <div class="tag">Prototyping</div>
+    <div class="tag">HTML / CSS / JS</div>
+    <div class="tag">Dark & Light Mode</div>
+  </div>
+</div>
+
+<!-- Projects -->
+<div class="projects" id="projects">
+  <p class="section-label">Selected Work</p>
+
+  <!-- Volt -->
+  <div class="project-card">
+    <div class="project-top">
+      <div class="project-name">Volt</div>
+      <div class="project-meta">Fitness App · UI Design<br>2026</div>
+    </div>
+    <p class="project-desc">A daily-precision fitness tracker for people who want their training data at a glance. Nutrition, workouts, and progress live in one cream-and-lime system built for fast scanning between sets.</p>
+
+    <div class="screens">
+      <div class="screen"><img src="images/volt-1-daily.png" alt="Volt daily precision dashboard"></div>
+      <div class="screen"><img src="images/volt-2-nutrition.png" alt="Volt nutrition tracking screen"></div>
+      <div class="screen"><img src="images/volt-3-workouts.png" alt="Volt workout logging screen"></div>
+      <div class="screen"><img src="images/volt-4-progress.png" alt="Volt progress and PRs screen"></div>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-item">
+        <h4 class="volt-accent">Problem</h4>
+        <p>Fitness data is usually scattered across three separate apps. Volt needed to unify nutrition, training, and progress without feeling cluttered mid-workout.</p>
+      </div>
+      <div class="case-item">
+        <h4 class="volt-accent">Approach</h4>
+        <p>Cream base with a single acid-lime accent, bold numerals for at-a-glance reading, and consistent card patterns across every data type.</p>
+      </div>
+      <div class="case-item">
+        <h4 class="volt-accent">Outcome</h4>
+        <p>4-screen system covering daily overview, macro tracking, live workout logging, and long-term progress with PRs and consistency history.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tether -->
+  <div class="project-card">
+    <div class="project-top">
+      <div class="project-name">Tether</div>
+      <div class="project-meta">Dating App · UI Design<br>2026</div>
+    </div>
+    <p class="project-desc">A dating app built around intention rather than swiping fatigue. Warm terracotta identity, a real profile-building flow, a match moment designed to feel like a genuine connection, and a chat that carries that same warmth forward.</p>
+
+    <div class="screens">
+      <div class="screen"><img src="images/tether-1-photos.png" alt="Tether add photos onboarding screen"></div>
+      <div class="screen"><img src="images/tether-2-swipe.png" alt="Tether swipe / discover screen"></div>
+      <div class="screen"><img src="images/tether-3-match.png" alt="Tether match celebration screen"></div>
+      <div class="screen"><img src="images/tether-4-chat.png" alt="Tether chat screen"></div>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-item">
+        <h4 class="tether-accent">Problem</h4>
+        <p>Dating apps optimise for endless swiping. Tether needed to feel intentional and warm from the very first screen, not transactional.</p>
+      </div>
+      <div class="case-item">
+        <h4 class="tether-accent">Approach</h4>
+        <p>Warm terracotta palette, serif typography, a real photo-first profile flow, and a match screen with playful, human copy instead of a generic alert.</p>
+      </div>
+      <div class="case-item">
+        <h4 class="tether-accent">Outcome</h4>
+        <p>End-to-end flow from splash through profile setup, swiping, and match celebration, with a consistent nav bar and component system throughout.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zenith -->
+  <div class="project-card">
+    <div class="project-name">Zenith</div>
+    <div class="project-meta" style="margin-bottom: 16px;">Wellness App · UI Design · 2026</div>
+    <p class="project-desc">A hyper-personalised mental health app using a soft lavender system to feel calm rather than clinical. Daily check-ins, guided breathing, and AI-driven insights replace the usual form-heavy mood tracker.</p>
+
+    <div class="screens">
+      <div class="screen"><img src="images/zenith-1-checkin.png" alt="Zenith mood check-in screen"></div>
+      <div class="screen"><img src="images/zenith-2-breathing.png" alt="Zenith box breathing exercise screen"></div>
+      <div class="screen"><img src="images/zenith-3-insights.png" alt="Zenith insights dashboard screen"></div>
+      <div class="screen"><img src="images/zenith-4-profile.png" alt="Zenith profile screen"></div>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-item">
+        <h4 class="zenith-accent">Problem</h4>
+        <p>Mental health apps feel clinical and form-like. Zenith needed to feel like a conversation with someone who understands you.</p>
+      </div>
+      <div class="case-item">
+        <h4 class="zenith-accent">Approach</h4>
+        <p>Soft lavender palette, a guided breathing ritual as the centrepiece interaction, and color-coded mood patterns surfaced as plain-language insights.</p>
+      </div>
+      <div class="case-item">
+        <h4 class="zenith-accent">Outcome</h4>
+        <p>4-screen system covering daily check-in, a guided exercise, an insights dashboard with monthly patterns, and profile management.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- About -->
+<div class="about" id="about">
+  <div>
+    <h2>About me</h2>
+    <p>I'm a self-taught UI designer with a focus on mobile app design. I care about the details — the right font weight, the right shadow, the right amount of breathing room.</p>
+    <p>I'm currently learning frontend development so I can build what I design. I believe the best designers understand how things are built.</p>
+  </div>
+  <div class="skills">
+    <div class="skill">
+      <h5>Design</h5>
+      <p>Figma, Design Systems, Prototyping, Variables, Components</p>
+    </div>
+    <div class="skill">
+      <h5>Frontend</h5>
+      <p>HTML, CSS, JavaScript, Responsive Design</p>
+    </div>
+    <div class="skill">
+      <h5>Process</h5>
+      <p>User flows, Wireframing, Visual Design, Handoff</p>
+    </div>
+    <div class="skill">
+      <h5>Currently learning</h5>
+      <p>React, Framer Motion, CSS animations</p>
+    </div>
+  </div>
+</div>
+
+<!-- Contact -->
+<div class="contact" id="contact">
+  <h2>Let's work together</h2>
+  <p>Open to junior UI design roles, product design internships, and freelance projects.</p>
+  <div class="contact-links">
+    <a href="mailto:your@email.com" class="btn btn-primary">Get in touch</a>
+    <a href="https://linkedin.com" class="btn btn-secondary">LinkedIn</a>
+    <a href="https://behance.net" class="btn btn-secondary">Behance</a>
+  </div>
+</div>
+
+</body>
+</html>  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #F5F3F0;
+}
+
+/* Hero */
+.hero {
+  padding: 100px 40px 80px;
+  max-width: 900px;
+  animation: fadeUp 1s ease forwards;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.hero p {
+  font-size: 17px;
+  color: rgba(245,243,240,0.6);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 12px;
+  padding: 6px 16px;
+  border: 1px solid rgba(245,243,240,0.2);
+  border-radius: 20px;
+  color: rgba(245,243,240,0.7);
+}
+
+/* Projects */
+.projects {
+  padding: 60px 40px;
+}
+.section-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(245,243,240,0.4);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+.project-card {
+  border: 1px solid rgba(245,243,240,0.1);
+  border-radius: 24px;
+  padding: 48px;
+  margin-bottom: 24px;
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+.project-card:hover {
+  border-color: rgba(245,243,240,0.3);
+}
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.project-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+.project-meta {
+  font-size: 13px;
+  color: rgba(245,243,240,0.4);
+  text-align: right;
+  line-height: 1.6;
+}
+.project-desc {
+  font-size: 15px;
+  color: rgba(245,243,240,0.6);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* Screen previews */
+.screens {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 36px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.screen {
   min-width: 140px;
   height: 280px;
   border-radius: 16px;
